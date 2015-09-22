@@ -40,7 +40,7 @@ def FindTargetNgram(SurfaceIn,sNgram,OutName):
     
     for cnt,line in enumerate(open(SurfaceIn)):
         line = line.strip()
-        key = line.split('\t').lower()
+        key = line.split('\t')[0].lower()
         if key in sNgram:
             print >>out, line
         if 0 == (cnt % 10000):
