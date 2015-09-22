@@ -44,7 +44,7 @@ def FindTargetNgram(SurfaceIn,sNgram,OutName):
         if key in sNgram:
             print >>out, line
         if 0 == (cnt % 10000):
-            print "processed [%d] lines"
+            print "processed [%d] lines" %(cnt)
     
     out.close()
     print 'target ngram matched'
