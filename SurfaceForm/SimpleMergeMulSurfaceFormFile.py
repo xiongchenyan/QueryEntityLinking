@@ -31,6 +31,8 @@ CurrentScore = 0
 out = open(sys.argv[-1],'w')
 for LineCnt,line in enumerate(heapq.merge(*lIn)):
     vCol = line.strip().split('\t')
+    if len(vCol) < 3:
+        print 'format error [%s]' %(line)
     text = vCol[:2]
     score = float(vCol[2])
     
