@@ -24,7 +24,7 @@ if len(sys.argv) < 4:
     sys.exit()
     
 
-lIn = [open(InName) for InName in sys.argv[:-1]]
+lIn = [open(InName) for InName in sys.argv[1:-1]]
 
 CurrentText = ""
 CurrentScore = 0
