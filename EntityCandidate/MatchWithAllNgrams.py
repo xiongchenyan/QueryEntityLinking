@@ -37,17 +37,19 @@ def GetNgramForQuery(QIn):
 def FindTargetNgram(SurfaceIn,sNgram,OutName):
     
     out = open(OutName,'w')
-    
+    print 'start finding [%d] target' %(len(sNgram))
+    sFind = set()
     for cnt,line in enumerate(open(SurfaceIn)):
         line = line.strip()
         key = line.split('\t')[0].lower()
         if key in sNgram:
             print >>out, line
+            sFind.add(key)
         if 0 == (cnt % 10000):
             print "processed [%d] lines" %(cnt)
     
     out.close()
-    print 'target ngram matched'
+    print 'target ngram matched [%d/%d]' %(len(sFind),len(sNgram))
     return
 
 
@@ -57,7 +59,7 @@ if 4 != len(sys.argv):
     
 sNgram = GetNgramForQuery(sys.argv[2])
 
-FindTargetNgram(sys.argv[1], sNgram, sys.argv[2])
+FindTargetNgram(sys.argv[1], sNgram, sys.argv[3])
         
         
     
