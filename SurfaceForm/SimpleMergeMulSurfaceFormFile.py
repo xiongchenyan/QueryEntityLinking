@@ -24,7 +24,6 @@ if len(sys.argv) < 4:
     sys.exit()
     
 
-print "reading input: " + sys.argv[1:-1]    
 lIn = [open(InName) for InName in sys.argv[:-1]]
 
 CurrentText = ""
