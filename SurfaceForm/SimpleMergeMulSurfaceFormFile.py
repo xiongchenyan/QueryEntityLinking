@@ -24,14 +24,13 @@ if len(sys.argv) < 4:
     sys.exit()
     
 
-print sys.argv[:-1]    
+print "reading input: " + sys.argv[1:-1]    
 lIn = [open(InName) for InName in sys.argv[:-1]]
 
 CurrentText = ""
 CurrentScore = 0
 out = open(sys.argv[-1],'w')
 for LineCnt,line in enumerate(heapq.merge(*lIn)):
-    print 'get line [%s]' %(line)
     vCol = line.strip().split('\t')
     if len(vCol) < 3:
         print 'format error [%s]' %(line)
