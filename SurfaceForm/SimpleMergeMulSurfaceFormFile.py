@@ -23,7 +23,8 @@ if len(sys.argv) < 4:
     print 'parameter [inputs]*n + output'
     sys.exit()
     
-    
+
+print sys.argv[:-1]    
 lIn = [open(InName) for InName in sys.argv[:-1]]
 
 CurrentText = ""
