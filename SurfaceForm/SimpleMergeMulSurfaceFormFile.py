@@ -34,7 +34,7 @@ for LineCnt,line in enumerate(heapq.merge(*lIn)):
     if len(vCol) < 3:
         print 'format error [%s]' %(line)
         break
-    text = vCol[:2]
+    text = '\t'.join(vCol[:2])
     score = float(vCol[2])
     
     if CurrentText == "":
