@@ -44,8 +44,9 @@ def ProcessOneQ(qid,query,hTrueQAna,hPredQAna):
         ResStr += 'Predicted\n'
         ResStr += '\n'.join(lPredAna) + '\n'
         ResStr += '\n\n'
+    
         
-    return ResStr
+    return ResStr,len(lTrueAna),len(lPredAna)
 
 
 
@@ -55,12 +56,23 @@ def Process(QIn, GroundTruthIn,AnaIn,OutName):
     
     lQidQuery = [line.strip().split('\t') for line in open(QIn)]
     
-    out = open(OutName,'w')
+    OutAdd = open(OutName + '_Add','w')
+    OutMiss = open(OutName + '_Miss','w')
+    OutMistake = open(OutName + '_Error','w')
     for qid,query in lQidQuery:
-        res = ProcessOneQ(qid, query, hTrueQAna, hPredQAna)
+        res,CntTrue,CntAna = ProcessOneQ(qid, query, hTrueQAna, hPredQAna)
         if "" != res:
-            print >>out, res
-    out.close()
+            if CntTrue == 0:
+                print >>OutAdd, res
+                continue
+            if CntAna == 0:
+                print >> OutMiss,res
+                continue
+            print >>OutMistake, res
+            
+    OutAdd.close()
+    OutMiss.close()
+    OutMistake.close()
     print 'finished'
     return True
 
