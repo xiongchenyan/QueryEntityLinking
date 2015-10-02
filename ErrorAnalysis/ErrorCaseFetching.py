@@ -53,8 +53,7 @@ def Process(QIn, GroundTruthIn,AnaIn,OutName):
     hTrueQAna = EntityAnaEvaluatorC.LoadQAnaResult(GroundTruthIn)
     hPredQAna = EntityAnaEvaluatorC.LoadQAnaResult(AnaIn)
     
-    lvCol = [line.strip().split('\t') for line in open(QIn)]
-    lQidQuery = [vCol[1:3] for vCol in lvCol]
+    lQidQuery = [line.strip().split('\t') for line in open(QIn)]
     
     out = open(OutName,'w')
     for qid,query in lQidQuery:
