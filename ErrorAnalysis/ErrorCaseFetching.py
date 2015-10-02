@@ -31,8 +31,8 @@ def ProcessOneQ(qid,query,hTrueQAna,hPredQAna):
         lTrueAna = hTrueQAna[qid]
     if qid in hPredQAna:
         lPredAna = hPredQAna[qid]
-    lTrueAna = [item[0] for item in lTrueAna]
-    lPredAna = [item[0] for item in lPredAna]    
+    lTrueAna = ['\t'.join(item[0]) for item in lTrueAna]
+    lPredAna = ['\t'.join(item[0]) for item in lPredAna]    
     lTrueAna.sort()
     lPredAna.sort()
     
