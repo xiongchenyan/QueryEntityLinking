@@ -28,7 +28,7 @@ class EntityAnaEvaluatorC(object):
         for vCol in lvCol:
             key = vCol[0]
             score = float(vCol[1])
-            lMention = vCol[1:]
+            lMention = vCol[2:]
             if not key in hQAna:
                 hQAna[key] = [[lMention,score]]
             else:
