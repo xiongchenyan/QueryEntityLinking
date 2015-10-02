@@ -16,7 +16,7 @@ what's my output:
 
 import site
 site.addsitedir('/bos/usr0/cx/PyCode/cxPyLib')
-site.addsitedir('/bos/usr0/cx/PyCode/ErrorCaseFetching')
+site.addsitedir('/bos/usr0/cx/PyCode/QueryEntityLinking')
 import sys
 from cxBase.Conf import cxConfC
 from EvaluateLinking.EntityAnaEvaluator import EntityAnaEvaluatorC
